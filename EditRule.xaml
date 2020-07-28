@@ -87,7 +87,7 @@
                 Foreground="{DynamicResource Foreground}"
                 BorderBrush="{DynamicResource MyBorderBrushColor}"
                 pu:TabControlHelper.TabControlStyle="Card"
-                pu:TabControlHelper.ItemsSelectedBackground="{DynamicResource WindowCaptionBackground}"
+                pu:TabControlHelper.ItemsSelectedBackground="{DynamicResource MyHoverBrushColor}"
                 pu:TabControlHelper.ItemsSelectedForeground="{DynamicResource WindowCaptionForeground}"
                 TabStripPlacement="Left" >
                 <TabItem

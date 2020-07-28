@@ -8,9 +8,9 @@
         <Setter Property="pu:ButtonHelper.ButtonStyle" Value="Hollow" />
         <Style.Triggers>
             <Trigger Property="pu:ButtonHelper.ButtonStyle" Value="Hollow">
-                <Setter Property="pu:ButtonHelper.HoverBrush" Value="#0099FF" />
+                <Setter Property="pu:ButtonHelper.HoverBrush" Value="{DynamicResource MyHoverBrushColor}" />
                 <Setter Property="BorderBrush" Value="{DynamicResource MyBorderBrushColor}" />
-                <Setter Property="Foreground" Value="#31ADFF" />
+                <Setter Property="Foreground" Value="{DynamicResource Foreground}" />
             </Trigger>
         </Style.Triggers>
     </Style>
@@ -36,7 +36,7 @@
                                         <Setter TargetName="grid" Property="Background" Value="#50FFFFFF" />
                                     </Trigger>
                                     <Trigger Property="Selector.IsSelected" Value="true">
-                                        <Setter TargetName="grid" Property="Background" Value="#8026A0DA" />
+                                        <Setter TargetName="grid" Property="Background" Value="{DynamicResource MyHoverBrushColor}" />
                                     </Trigger>
                                 </ControlTemplate.Triggers>
                             </ControlTemplate>

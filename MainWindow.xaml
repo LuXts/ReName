@@ -56,7 +56,7 @@
 
     <Grid Margin="0">
         <Grid HorizontalAlignment="Left" Margin="10,10,0,10" Width="250" MinWidth="250">
-            <Border BorderBrush="#31ADFF" BorderThickness="1">
+            <Border BorderBrush="{DynamicResource MyBorderBrushColor}" BorderThickness="1">
             </Border>
             <Button
                 Content="{DynamicResource OpenFileButton}"
