@@ -1,0 +1,335 @@
+﻿<pu:WindowX x:Class="ReName.EditRule"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:pu="clr-namespace:Panuon.UI.Silver;assembly=Panuon.UI.Silver"
+        xmlns:purs="clr-namespace:Panuon.UI.Silver.Resources;assembly=Panuon.UI.Silver"
+        xmlns:input="clr-namespace:System.Windows.Input;assembly=PresentationCore"
+        xmlns:local="clr-namespace:ReName"
+        mc:Ignorable="d"
+        BorderBrush="{DynamicResource WindowBorderBrushColor}"
+        pu:WindowXCaption.Background="{DynamicResource WindowCaptionBackground}"
+        pu:WindowXCaption.Foreground="{DynamicResource WindowCaptionForeground}"
+        Background="{DynamicResource Background}"
+        Title="EditRule" Height="500" Width="720" ResizeMode="CanMinimize" WindowStartupLocation="CenterOwner" Icon="Logo.png">
+    <pu:WindowXCaption.MinimizeButtonStyle>
+        <Style TargetType="Button"
+               BasedOn="{StaticResource {x:Static purs:ResourceKeys.WindowXMinimizeButtonStyle}}">
+            <Style.Triggers>
+                <Trigger Property="pu:ButtonHelper.ButtonStyle"
+                         Value="Hollow">
+                    <Setter Property="pu:ButtonHelper.HoverBrush" Value="#2E323A" />
+                    <Setter Property="Foreground"
+                            Value="White" />
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+    </pu:WindowXCaption.MinimizeButtonStyle>
+    <pu:WindowXCaption.CloseButtonStyle>
+        <Style TargetType="Button"
+               BasedOn="{StaticResource {x:Static purs:ResourceKeys.WindowXCloseButtonStyle}}">
+            <Style.Triggers>
+                <Trigger Property="pu:ButtonHelper.ButtonStyle"
+                         Value="Hollow">
+                    <Setter Property="pu:ButtonHelper.HoverBrush" Value="#D64343" />
+                    <Setter Property="Foreground"
+                            Value="White" />
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+    </pu:WindowXCaption.CloseButtonStyle>
+
+    <Grid>
+        <Label
+            Content="{DynamicResource OldName}"
+            HorizontalAlignment="Left"
+            Margin="30,10,0,0"
+            Foreground="{DynamicResource Foreground}"
+            VerticalAlignment="Top" />
+        <TextBox x:Name="OldStrTextBox"
+            Height="40"
+            Margin="30,40,30,0"
+            VerticalAlignment="Top"
+            HorizontalScrollBarVisibility="Visible"
+            pu:ScrollViewerHelper.ScrollBarThickness ="10"
+            pu:ScrollViewerHelper.ScrollBarCornerRadius ="5"
+            pu:ScrollViewerHelper.TrackBrush ="#30FFFFFF"
+            Background="{DynamicResource TextBackground}"
+            Foreground="{DynamicResource TextForeground}"
+            IsReadOnly="True" BorderBrush="{DynamicResource MyBorderBrushColor}"
+            UndoLimit="512" />
+        <Label
+            Content="{DynamicResource NewName}"
+            HorizontalAlignment="Left"
+            Margin="30,90,0,0"
+            Foreground="{DynamicResource Foreground}"
+            VerticalAlignment="Top" />
+        <TextBox x:Name="NewStrTextBox"
+            Height="40"
+            Margin="30,120,30,0"
+            VerticalAlignment="Top"
+            HorizontalScrollBarVisibility="Visible"
+            pu:ScrollViewerHelper.ScrollBarThickness ="10"
+            pu:ScrollViewerHelper.ScrollBarCornerRadius ="5"
+            pu:ScrollViewerHelper.TrackBrush ="#30FFFFFF"
+            Background="{DynamicResource TextBackground}"
+            Foreground="{DynamicResource TextForeground}"
+            IsReadOnly="True" BorderBrush="{DynamicResource MyBorderBrushColor}"
+            UndoLimit="512" />
+        <Grid
+            Margin="30,180,30,70">
+            <Border BorderBrush="{DynamicResource MyBorderBrushColor}"
+                    BorderThickness="1" />
+            <TabControl x:Name="RuleTab"
+                SelectionChanged ="TabControl_SelectionChanged"
+                Margin="0,0,0,0"
+                Foreground="{DynamicResource Foreground}"
+                BorderBrush="{DynamicResource MyBorderBrushColor}"
+                pu:TabControlHelper.TabControlStyle="Card"
+                pu:TabControlHelper.ItemsSelectedBackground="{DynamicResource WindowCaptionBackground}"
+                pu:TabControlHelper.ItemsSelectedForeground="{DynamicResource WindowCaptionForeground}"
+                TabStripPlacement="Left" >
+                <TabItem
+                    Header="{DynamicResource ReplaceDeal}">
+                    <Grid Background="#2E323A">
+                        <Border
+                            BorderThickness="1"
+                            BorderBrush="{DynamicResource MyBorderBrushColor}" />
+                        <Grid
+                            Height="50"
+                            VerticalAlignment="Top"
+                            Margin="10,10,10,0">
+                            <Label
+                                Content="{DynamicResource DealAimStr}"
+                                Foreground="{DynamicResource Foreground}"
+                                VerticalAlignment="Top" />
+                            <TextBox x:Name="ReplaccAimStrEdit"
+                                Margin="0,25,0,0"
+                                Background="{DynamicResource TextBackground}"
+                                Foreground="{DynamicResource TextForeground}"
+                                TextChanged="AimStrEdit_PreviewTextInput"
+                                BorderBrush="{DynamicResource MyBorderBrushColor}" />
+                        </Grid>
+                        <Grid
+                            Height="50"
+                            VerticalAlignment="Top"
+                            Margin="10,60,10,0">
+                            <Label
+                                Content="{DynamicResource DealNewStr}"
+                                Foreground="{DynamicResource Foreground}"
+                                VerticalAlignment="Top" />
+                            <TextBox x:Name="ReplaceNewStrEdit"
+                                Margin="0,25,0,0"
+                                Background="{DynamicResource TextBackground}"
+                                Foreground="{DynamicResource TextForeground}"
+                                TextChanged="NewStrEdit_PreviewTextInput"
+                                BorderBrush="{DynamicResource MyBorderBrushColor}" />
+                        </Grid>
+                    </Grid>
+                </TabItem>
+                <TabItem Header="{DynamicResource ClearDeal}">
+                    <Grid Background="#2E323A">
+                        <Border
+                            BorderThickness="1"
+                            BorderBrush="{DynamicResource MyBorderBrushColor}" />
+                    </Grid>
+                </TabItem>
+                <TabItem Header="{DynamicResource AddIndexDeal}">
+                    <Grid Background="#2E323A">
+                        <Border
+                            BorderThickness="1"
+                            BorderBrush="{DynamicResource MyBorderBrushColor}" />
+                        <Grid
+                            Height="50"
+                            VerticalAlignment="Top"
+                            Margin="10,10,10,0">
+                            <Label
+                                Content="{DynamicResource DealAimLen}"
+                                Foreground="{DynamicResource Foreground}"
+                                VerticalAlignment="Top" />
+                            <TextBox x:Name="AddIndexAimLenEdit"
+                                Margin="0,25,0,0"
+                                Background="{DynamicResource TextBackground}"
+                                Foreground="{DynamicResource TextForeground}"
+                                BorderBrush="{DynamicResource MyBorderBrushColor}"
+                                HorizontalAlignment="Left"
+                                Width="50"
+                                input:InputMethod.IsInputMethodEnabled="False"
+                                TextChanged="AimLenEdit_PreviewTextInput"
+                                PreviewTextInput ="TextBox_PreviewTextInput" />
+                            <Slider x:Name="AddIndexAimLenSlider"
+                                Margin="60,25,0,0"
+                                Foreground="{DynamicResource Foreground}"
+                                Background="#2231ADFF"
+                                ValueChanged="AimLenSlider_ValueChanged"
+                                pu:SliderHelper.ThumbSize="15" 
+                                SmallChange="1" />
+                        </Grid>
+                    </Grid>
+                </TabItem>
+                <TabItem Header="{DynamicResource AddDeal}">
+                    <Grid Background="#2E323A">
+                        <Border
+                            BorderThickness="1"
+                            BorderBrush="{DynamicResource MyBorderBrushColor}" />
+                        <Grid
+                            Height="50"
+                            VerticalAlignment="Top"
+                            Margin="10,10,10,0">
+                            <Label
+                                Content="{DynamicResource DealAimLen}"
+                                Foreground="{DynamicResource Foreground}"
+                                VerticalAlignment="Top" />
+                            <TextBox x:Name="AddAimLenEdit"
+                                Margin="0,25,0,0"
+                                Background="{DynamicResource TextBackground}"
+                                Foreground="{DynamicResource TextForeground}"
+                                BorderBrush="{DynamicResource MyBorderBrushColor}"
+                                HorizontalAlignment="Left"
+                                Width="50"
+                                input:InputMethod.IsInputMethodEnabled="False"
+                                TextChanged="AimLenEdit_PreviewTextInput"
+                                PreviewTextInput ="TextBox_PreviewTextInput" />
+                            <Slider x:Name="AddAimLenSlider"
+                                Margin="60,25,0,0"
+                                Foreground="{DynamicResource Foreground}"
+                                Background="#2231ADFF"
+                                ValueChanged="AimLenSlider_ValueChanged"
+                                pu:SliderHelper.ThumbSize="15" SmallChange="1" />
+                        </Grid>
+                        <Grid
+                            Height="50"
+                            VerticalAlignment="Top"
+                            Margin="10,60,10,0">
+                            <Label
+                                Content="{DynamicResource DealNewStr}"
+                                Foreground="{DynamicResource Foreground}"
+                                VerticalAlignment="Top" />
+                            <TextBox x:Name="AddNewStrEdit"
+                                Margin="0,25,0,0"
+                                Background="{DynamicResource TextBackground}"
+                                Foreground="{DynamicResource TextForeground}"
+                                TextChanged="NewStrEdit_PreviewTextInput"
+                                BorderBrush="{DynamicResource MyBorderBrushColor}" />
+                        </Grid>
+                    </Grid>
+                </TabItem>
+                <TabItem Header="{DynamicResource RemoveDeal}">
+                    <Grid Background="#2E323A">
+                        <Border
+                            BorderThickness="1"
+                            BorderBrush="{DynamicResource MyBorderBrushColor}" />
+                        <Grid
+                            Height="50"
+                            VerticalAlignment="Top"
+                            Margin="10,10,10,0">
+                            <Label
+                                Content="{DynamicResource DealAimLen}"
+                                Foreground="{DynamicResource Foreground}"
+                                VerticalAlignment="Top" />
+                            <TextBox x:Name="RemoveAimLenEdit"
+                                Margin="0,25,0,0"
+                                Background="{DynamicResource TextBackground}"
+                                Foreground="{DynamicResource TextForeground}"
+                                BorderBrush="{DynamicResource MyBorderBrushColor}"
+                                HorizontalAlignment="Left"
+                                Width="50"
+                                input:InputMethod.IsInputMethodEnabled="False"
+                                TextChanged="AimLenEdit_PreviewTextInput"
+                                PreviewTextInput ="TextBox_PreviewTextInput" />
+                            <Slider 
+                                x:Name="RemoveAimLenSlider"
+                                Margin="60,25,0,0"
+                                Foreground="{DynamicResource Foreground}"
+                                Background="#2231ADFF"
+                                ValueChanged="AimLenSlider_ValueChanged"
+                                pu:SliderHelper.ThumbSize="15" SmallChange="1" />
+                        </Grid>
+                        <Grid
+                            Height="50"
+                            VerticalAlignment="Top"
+                            Margin="10,60,10,0">
+                            <Label
+                                Content="{DynamicResource DealDelLen}"
+                                Foreground="{DynamicResource Foreground}"
+                                VerticalAlignment="Top" />
+                            <TextBox x:Name="RemoveLenEdit"
+                                Margin="0,25,0,0"
+                                Background="{DynamicResource TextBackground}"
+                                Foreground="{DynamicResource TextForeground}"
+                                BorderBrush="{DynamicResource MyBorderBrushColor}"
+                                HorizontalAlignment="Left"
+                                Width="50"
+                                input:InputMethod.IsInputMethodEnabled="False"
+                                TextChanged="LenEdit_PreviewTextInput"
+                                PreviewTextInput ="TextBox_PreviewTextInput" />
+                            <Slider x:Name="RemoveLenSlider"
+                                Margin="60,25,0,0"
+                                Foreground="{DynamicResource Foreground}"
+                                Background="#2231ADFF"
+                                ValueChanged="LenSlider_ValueChanged"
+                                pu:SliderHelper.ThumbSize="15" SmallChange="1" />
+                        </Grid>
+                    </Grid>
+                </TabItem>
+                <TabItem Header="{DynamicResource RegexDeal}">
+                    <Grid Background="#2E323A">
+                        <Border
+                            BorderThickness="1"
+                            BorderBrush="{DynamicResource MyBorderBrushColor}" />
+                        <Grid
+                            Height="50"
+                            VerticalAlignment="Top"
+                            Margin="10,10,10,0">
+                            <Label
+                                Content="{DynamicResource RegexDealAimStr}"
+                                Foreground="{DynamicResource Foreground}"
+                                VerticalAlignment="Top" />
+                            <TextBox x:Name="RegexAimStrEdit"
+                                Margin="0,25,0,0"
+                                Background="{DynamicResource TextBackground}"
+                                Foreground="{DynamicResource TextForeground}"
+                                TextChanged="AimStrEdit_PreviewTextInput"
+                                BorderBrush="{DynamicResource MyBorderBrushColor}" />
+                        </Grid>
+                        <Grid
+                            Height="50"
+                            VerticalAlignment="Top"
+                            Margin="10,60,10,0">
+                            <Label
+                                Content="{DynamicResource DealNewStr}"
+                                Foreground="{DynamicResource Foreground}"
+                                VerticalAlignment="Top" />
+                            <TextBox x:Name="RegexNewStrEdit"
+                                Margin="0,25,0,0"
+                                Background="{DynamicResource TextBackground}"
+                                Foreground="{DynamicResource TextForeground}"
+                                TextChanged="NewStrEdit_PreviewTextInput"
+                                BorderBrush="{DynamicResource MyBorderBrushColor}" />
+                        </Grid>
+                    </Grid>
+                </TabItem>
+            </TabControl>
+        </Grid>
+        <Button
+            Content="{DynamicResource ApplyButton}"
+            Margin="0,0,160,30"
+            VerticalAlignment="Bottom"
+            Height="30"
+            Style="{StaticResource My_Button}" 
+            HorizontalAlignment="Right" 
+            Click="ApplyButton_Click"
+            Width="120" />
+        <Button
+            Content="{DynamicResource CancelButton}"
+            Margin="0,0,30,30"
+            VerticalAlignment="Bottom"
+            Height="30"
+            Style="{StaticResource My_Button}" 
+            HorizontalAlignment="Right" 
+            Click="CloseButton_Click"
+            Width="120" />
+
+    </Grid>
+</pu:WindowX>

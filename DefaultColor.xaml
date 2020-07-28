@@ -1,0 +1,10 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:ReName.color">
+    <Color x:Key="BorderBrushColor">#2e323a</Color>
+    <Color x:Key="WindowCaptionBackground">#0099FF</Color>
+    <Color x:Key="WindowCaptionForeground">#EFEFEF</Color>
+    <Color x:Key="BorderBrushColor">#2e323a</Color>
+    <Color x:Key="BorderBrushColor">#2e323a</Color>
+    <Color x:Key="BorderBrushColor">#2e323a</Color>
+</ResourceDictionary>

@@ -1,0 +1,165 @@
+﻿<pu:WindowX x:Class="ReName.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:pu="clr-namespace:Panuon.UI.Silver;assembly=Panuon.UI.Silver"
+        xmlns:purs="clr-namespace:Panuon.UI.Silver.Resources;assembly=Panuon.UI.Silver"
+        xmlns:local="clr-namespace:ReName"
+        mc:Ignorable="d"
+        BorderBrush="{DynamicResource WindowBorderBrushColor}"
+        pu:WindowXCaption.Background="{DynamicResource WindowCaptionBackground}"
+        pu:WindowXCaption.Foreground="{DynamicResource WindowCaptionForeground}"
+        Background="{DynamicResource Background}"
+        Title="{DynamicResource WindowTitle}" Height="720" Width="1280" MinWidth="720" MinHeight="720" Icon="Logo.png">
+    <Window.Resources>
+    </Window.Resources>
+    <pu:WindowXCaption.MinimizeButtonStyle>
+        <Style TargetType="Button"
+               BasedOn="{StaticResource {x:Static purs:ResourceKeys.WindowXMinimizeButtonStyle}}">
+            <Style.Triggers>
+                <Trigger Property="pu:ButtonHelper.ButtonStyle"
+                         Value="Hollow">
+                    <Setter Property="pu:ButtonHelper.HoverBrush" Value="#2E323A" />
+                    <Setter Property="Foreground"
+                            Value="White" />
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+    </pu:WindowXCaption.MinimizeButtonStyle>
+    <pu:WindowXCaption.MaximizeButtonStyle>
+        <Style TargetType="Button"
+               BasedOn="{StaticResource {x:Static purs:ResourceKeys.WindowXMaximizeButtonStyle}}">
+            <Style.Triggers>
+                <Trigger Property="pu:ButtonHelper.ButtonStyle"
+                         Value="Hollow">
+                    <Setter Property="pu:ButtonHelper.HoverBrush" Value="#2E323A" />
+                    <Setter Property="Foreground"
+                            Value="White" />
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+    </pu:WindowXCaption.MaximizeButtonStyle>
+    <pu:WindowXCaption.CloseButtonStyle>
+        <Style TargetType="Button"
+               BasedOn="{StaticResource {x:Static purs:ResourceKeys.WindowXCloseButtonStyle}}">
+            <Style.Triggers>
+                <Trigger Property="pu:ButtonHelper.ButtonStyle"
+                         Value="Hollow">
+                    <Setter Property="pu:ButtonHelper.HoverBrush" Value="#D64343" />
+                    <Setter Property="Foreground"
+                            Value="White" />
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+    </pu:WindowXCaption.CloseButtonStyle>
+
+    <Grid Margin="0">
+        <Grid HorizontalAlignment="Left" Margin="10,10,0,10" Width="250" MinWidth="250">
+            <Border BorderBrush="#31ADFF" BorderThickness="1">
+            </Border>
+            <Button
+                Content="{DynamicResource OpenFileButton}"
+                Margin="6,6,6,0"
+                VerticalAlignment="Top"
+                Height="30"
+                Style="{StaticResource My_Button}"
+                Click="OpenFileButtonClick" />
+            <Button
+                Content="{DynamicResource AddRule}"
+                Margin="6,42,6,0"
+                VerticalAlignment="Top"
+                Height="30"
+                Style="{StaticResource My_Button}"
+                Click="AddRuleButtonClick" />
+            <Button
+                Content="{DynamicResource DelRule}"
+                Margin="6,78,6,0"
+                VerticalAlignment="Top"
+                Height="30"
+                Style="{StaticResource My_Button}"
+                Click="DelRuleButtonClick"/>
+            <Button
+                Content="{DynamicResource EditRule}"
+                Margin="6,114,6,0"
+                VerticalAlignment="Top"
+                Height="30"
+                Style="{StaticResource My_Button}" 
+                Click="EditRuleButtonClick"/>
+            <Button
+                Content="{DynamicResource UpRule}"
+                Margin="6,150,128,0"
+                VerticalAlignment="Top"
+                Height="30"
+                Style="{StaticResource My_Button}" 
+                Click="MoveRuleUpButtonClick"/>
+            <Button
+                Content="{DynamicResource DownlRule}"
+                Margin="128,150,6,0"
+                VerticalAlignment="Top"
+                Height="30"
+                Style="{StaticResource My_Button}" 
+                Click="MoveRuleDownButtonClick"/>
+            <ListBox x:Name="Rule_ListBox"
+                Margin="6,186,6,42"
+                BorderBrush="{DynamicResource MyBorderBrushColor}"
+                Style="{StaticResource My_ListBox}" />
+            <Button
+                Content="{DynamicResource ApplyButton}"
+                Margin="6,0,128,6"
+                VerticalAlignment="Bottom"
+                Height="30"
+                Style="{StaticResource My_Button}" 
+                Click="ApplyButtonClick"/>
+            <Button
+                Content="{DynamicResource CancelButton}"
+                Margin="128,0,6,6"
+                VerticalAlignment="Bottom"
+                Height="30"
+                Style="{StaticResource My_Button}" 
+                Click="CloseButtonClick"/>
+        </Grid>
+        <Grid Margin="270,10,10,10">
+            <Border BorderBrush="{DynamicResource MyBorderBrushColor}" BorderThickness="1" />
+            <Grid Margin="0,0,0,0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="245*" />
+                    <ColumnDefinition Width="245*" />
+                </Grid.ColumnDefinitions>
+                <ListBox
+                x:Name="Old_Path_List"
+                Margin="6,35,3,6"
+                Grid.Column="0"
+                SelectionMode="Extended"
+                BorderBrush="{DynamicResource MyBorderBrushColor}"
+                Style="{StaticResource My_ListBox_NoSelete}" >
+                </ListBox>
+                <ListBox
+                x:Name="New_Path_list"
+                Margin="3,35,6,6"
+                Grid.Column="1"
+                SelectionMode="Extended"
+                BorderBrush="{DynamicResource MyBorderBrushColor}"
+                Style="{StaticResource My_ListBox_NoSelete}" />
+                <TextBlock
+                HorizontalAlignment="Left"
+                Margin="10,10,0,0"
+                TextWrapping="Wrap"
+                VerticalAlignment="Top"
+                Grid.Column="0"
+                Height="20"
+                Text="{DynamicResource OldName}"
+                Foreground="{DynamicResource Foreground}" />
+                <TextBlock
+                HorizontalAlignment="Left"
+                Margin="10,10,0,0"
+                TextWrapping="Wrap"
+                VerticalAlignment="Top"
+                Grid.Column="1"
+                Height="20"
+                Text="{DynamicResource NewName}"
+                Foreground="{DynamicResource Foreground}" />
+            </Grid>
+        </Grid>
+    </Grid>
+</pu:WindowX>

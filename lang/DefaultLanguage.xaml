@@ -1,0 +1,32 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:sys="clr-namespace:System;assembly=mscorlib">
+    <sys:String x:Key="WindowTitle">批量重命名工具</sys:String>
+    <sys:String x:Key="EditRuleTitle">批量重命名工具</sys:String>
+
+    <sys:String x:Key="OpenFileButton">打 开 文 件</sys:String>
+    <sys:String x:Key="AddRule">添 加 规 则</sys:String>
+    <sys:String x:Key="DelRule">删 除 规 则</sys:String>
+    <sys:String x:Key="EditRule">修 改 规 则</sys:String>
+    <sys:String x:Key="UpRule">上 移</sys:String>
+    <sys:String x:Key="DownlRule">下 移</sys:String>
+    <sys:String x:Key="ApplyButton">应 用</sys:String>
+    <sys:String x:Key="CancelButton">取 消</sys:String>
+    <sys:String x:Key="OldName">旧 文 件 名</sys:String>
+    <sys:String x:Key="NewName">新 文 件 名</sys:String>
+
+    <sys:String x:Key="ReplaceDeal">替换指定字符</sys:String>
+    <sys:String x:Key="ClearDeal">删除所有字符</sys:String>
+    <sys:String x:Key="AddIndexDeal">添加数字编号</sys:String>
+    <sys:String x:Key="AddDeal">按位置增添字符</sys:String>
+    <sys:String x:Key="RemoveDeal">按位置删除字符</sys:String>
+    <sys:String x:Key="RegexDeal">按正则表达式替换字符</sys:String>
+
+    <sys:String x:Key="RegexDealAimStr">正则表达式字符串</sys:String>
+
+    <sys:String x:Key="DealAimStr">目标字符串</sys:String>
+    <sys:String x:Key="DealNewStr">新字符串</sys:String>
+
+    <sys:String x:Key="DealAimLen">目标位置 「 0为开始位置，负数为从末尾开始 」</sys:String>
+    <sys:String x:Key="DealDelLen">删除的字符长度</sys:String>
+</ResourceDictionary>

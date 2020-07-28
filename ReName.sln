@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30320.27
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReName", "ReName.csproj", "{678B3C24-078D-4393-B027-C858166A0CA6}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+		发布|Any CPU = 发布|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{678B3C24-078D-4393-B027-C858166A0CA6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{678B3C24-078D-4393-B027-C858166A0CA6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{678B3C24-078D-4393-B027-C858166A0CA6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{678B3C24-078D-4393-B027-C858166A0CA6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{678B3C24-078D-4393-B027-C858166A0CA6}.发布|Any CPU.ActiveCfg = 发布|Any CPU
+		{678B3C24-078D-4393-B027-C858166A0CA6}.发布|Any CPU.Build.0 = 发布|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {B4BE8257-98D6-4ED6-8F63-F6CAB68F8351}
+	EndGlobalSection
+EndGlobal
